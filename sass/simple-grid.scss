@@ -1,0 +1,85 @@
+@import "_variables.sass";
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+@media (min-width: 1200px){
+    .container{
+        width: 1200px;
+        padding: 0;
+    }
+}
+.row{
+    margin-left: -10px;
+    margin-right: -10px;
+    &:before, &:after{
+        content: " ";
+        display: table;
+    }
+    &:after{
+        clear: both;
+    }
+}
+.col{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    margin-right: -4px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width : 480px) and (max-width : 768px) {
+    .hide-on-ex{
+        display: none;
+    }
+    @for $i from 2 through $max_collumns {
+        .col-#{$i}-ex{
+            $width: 0%;
+            $width: $width + 100 / $i;
+            width: $width;
+        }   
+    }
+    
+}
+@media only screen and (min-width : 768px) and (max-width : 992px) {
+    .hide-on-sm{
+        display: none;
+    }
+    @for $i from 2 through $max_collumns {
+        .col-#{$i}-sm{
+            $width: 0%;
+            $width: $width + 100 / $i;
+            width: $width;
+        }   
+    }
+}
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+    .hide-on-md{
+        display: none;
+    }
+    @for $i from 2 through $max_collumns {
+        .col-#{$i}-md{
+            $width: 0%;
+            $width: $width + 100 / $i;
+            width: $width;
+        }   
+    }
+}
+@media only screen and (min-width: 1200px){
+    .hide-on-lg{
+        display: none;
+    }
+    @for $i from 2 through $max_collumns {
+        .col-#{$i}-lg{
+            $width: 0%;
+            $width: $width + 100 / $i;
+            width: $width;
+        }   
+    }
+}
