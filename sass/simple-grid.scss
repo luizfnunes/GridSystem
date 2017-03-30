@@ -1,5 +1,12 @@
 @import "_variables.sass";
+// Getting the suffixes //
+$large   : nth( $suffixes,1 );
+$medium  : nth( $suffixes,2 );
+$small   : nth( $suffixes,3 );
+$extra   : nth( $suffixes,4 );
+$minimum : nth( $suffixes,5 );
 
+*{box-sizing: border-box;}
 .container{
     width: 100%;
     margin-left: auto;
@@ -13,8 +20,8 @@
     }
 }
 .row{
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: -$space_collumn;
+    margin-right: -$space_collumn;
     &:before, &:after{
         content: " ";
         display: table;
@@ -24,62 +31,137 @@
     }
 }
 .col{
+    width: 100%;
     display: inline-block;
     vertical-align: top;
     min-height: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
+    padding-left: $space_collumn;
+    padding-right: $space_collumn;
     margin-right: -4px;
-    margin-bottom: 10px;
+    margin-bottom: $space_bottom_collumn;
 }
-
-@media only screen and (min-width : 480px) and (max-width : 768px) {
-    .hide-on-ex{
-        display: none;
-    }
-    @for $i from 2 through $max_collumns {
-        .col-#{$i}-ex{
+// Minimum device display (480px) - sufix -mn //
+@media only screen and (max-width : 480px) {
+    @for $i from 1 through $max_collumns {
+        .col-#{$i}-#{$minimum}{
             $width: 0%;
             $width: $width + 100 / $i;
             width: $width;
         }   
     }
     
+    // Visibility controls (show and hide) //
+    .hide-on-#{$minimum}{
+        display: none;
+    }
+    @each $suffix in $suffixes {
+        @if $suffix != $minimum{
+            .show-on-#{$suffix}{
+                display: none;
+            }    
+        }
+    }
+    .show-on-#{$minimum}{
+        display: initial;
+    }
 }
+// Extra Small device display (between 480px and 768px) - sufix -ex //
+@media only screen and (min-width : 480px) and (max-width : 768px) {
+    @for $i from 1 through $max_collumns {
+        .col-#{$i}-#{$extra}{
+            $width: 0%;
+            $width: $width + 100 / $i;
+            width: $width;
+        }   
+    }
+     
+    // Visibility controls (show and hide) //
+    .hide-on-#{$extra}{
+        display: none;
+    }
+    @each $suffix in $suffixes {
+        @if $suffix != $extra{
+            .show-on-#{$suffix}{
+                display: none;
+            }    
+        }
+    }
+    .show-on-#{$extra}{
+        display: initial;
+    }
+    
+}
+// Small device display (between 768px and 992px) - sufix -sm //
 @media only screen and (min-width : 768px) and (max-width : 992px) {
-    .hide-on-sm{
-        display: none;
-    }
-    @for $i from 2 through $max_collumns {
-        .col-#{$i}-sm{
+    @for $i from 1 through $max_collumns {
+        .col-#{$i}-#{$small}{
             $width: 0%;
             $width: $width + 100 / $i;
             width: $width;
         }   
     }
+    
+    .hide-on-#{$small}{
+        display: none;
+    }
+    @each $suffix in $suffixes {
+        @if $suffix != $small{
+            .show-on-#{$suffix}{
+                display: none;
+            }    
+        }
+    }
+    .show-on-#{$small}{
+        display: initial;
+    }
 }
+// Medium device display (between 992px and 1200px) - sufix -md //
 @media only screen and (min-width : 992px) and (max-width : 1200px) {
-    .hide-on-md{
-        display: none;
-    }
-    @for $i from 2 through $max_collumns {
-        .col-#{$i}-md{
+     @for $i from 1 through $max_collumns {
+        .col-#{$i}-#{$medium}{
             $width: 0%;
             $width: $width + 100 / $i;
             width: $width;
         }   
+    }
+    
+    // Visibility controls (show and hide) //
+    .hide-on-#{$medium}{
+        display: none;
+    }
+    @each $suffix in $suffixes {
+        @if $suffix != $medium{
+            .show-on-#{$suffix}{
+                display: none;
+            }    
+        }
+    }
+    .show-on-#{$medium}{
+        display: initial;
     }
 }
+// Large device display (greater than 1200px) - sufix -lg //
 @media only screen and (min-width: 1200px){
-    .hide-on-lg{
-        display: none;
-    }
-    @for $i from 2 through $max_collumns {
-        .col-#{$i}-lg{
+     @for $i from 1 through $max_collumns {
+        .col-#{$i}-#{$large}{
             $width: 0%;
             $width: $width + 100 / $i;
             width: $width;
         }   
+    }
+        
+    // Visibility controls (show and hide) //
+    .hide-on-#{$large}{
+        display: none;
+    }
+    @each $suffix in $suffixes {
+        @if $suffix != $large{
+            .show-on-#{$suffix}{
+                display: none;
+            }    
+        }
+    }
+    .show-on-#{$large}{
+        display: initial;
     }
 }

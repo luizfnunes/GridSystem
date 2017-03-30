@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Grig</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <style>
+        /*Reset*/
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*Styles*/
+        html,
+        body {
+            font-family: 'Dosis', sans-serif;
+            font-size: 18px;
+            color: #969696;
+        }
+        a:link{
+            text-decoration: none;
+            color: #e67e22;
+        }
+        .container-head{
+           background: rgba(246,246,246,1);
+background: -moz-linear-gradient(top, rgba(246,246,246,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246,246,246,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(top, rgba(246,246,246,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(top, rgba(246,246,246,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(top, rgba(246,246,246,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to bottom, rgba(246,246,246,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#ffffff', GradientType=0 );
+        }
+        header {
+            height: 250px;
+            text-align: center;
+            display: table;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 78px;
+        }
+        header>* {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        header ul{
+            list-style: none;
+            margin: 20px 0;
+        }
+        header ul li{
+            display: inline;
+            padding-right: 15px;
+        }
+        h1, h2{
+            color: #333;
+        }
+        .preview {
+            min-height: 71px;
+            background: #e67e22;
+            color: #FFF;
+            font-size: 18px;
+            padding 4px;
+            text-align: center;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+        .section-title{
+            padding-top: 5px;
+            margin-bottom: 5px;
+            border-top: 1px solid #F6F6F6;
+        }
+        .section-description{
+            padding: 20px 0;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, td{
+            border: 1px solid #F6F6F6;
+        }
+        th{
+            background: #e67e22;
+            color: #FFF;
+            border: 1px solid #e67e22;
+        }
+        th, td{
+            text-align: left;
+            padding: 10px;
+        }
+        .center{text-align: center}
+        code{
+            font-size: 13px;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/simple-grid.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/tomorrow.min.css">
+</head>
+
+<body>
+
+    <div class="container container-head">
+        <header>
+            <div class="header-wrapper">
+                <h1>Simple Grid</h1>
+                <p>Simple Grid is a simple and responsive grid system, initially containing a system of 8 columns, and can be changed through the use of sass.</p>
+                <ul>
+                    <li><a href="#">Getting Started</a></li>
+                    <li><a href="#">Grid</a></li>
+                    <li><a href="#">Responsive classes</a></li>
+                    <li><a href="#">SASS</a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <h2 class="section-title">Getting Started</h2>
+            <div class="col col-2-lg col-2-md col-2-sm col-1-ex col-1-mn">
+                <p class="section-description">Download the file <span class='hl'>simple-grid.css</span> or <span class='hl'>simple-grid.min.css</span>, copy to your project and linking in header of the page:</p>
+            </div>
+               <div class="col col-2-lg col-2-md col-2-sm col-1-ex col-1-mn">
+                <pre class="center section-description"><code class="html">&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;path/simple-grid.css&#x22; /&#x3E;</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col">
+            <h2 class="section-title">Grid</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table>
+                    <tr><th>Class</th><th>Size</th><th>Description</th></tr>
+                    <tr><td>container</td><td>1200px in wide devices / 100% of page in other sizes screen</td><td>Container to content</td></tr>
+                    <tr><td>row</td><td>100% of container </td><td>General class to rows</td></tr>
+                    <tr><td>col</td><td>100% of row</td><td>General class to collumns</td></tr>
+                    <tr><td>col-{n}-lg</td><td>larger than 1200px</td><td>Size specifc for wide devices</td></tr>
+                    <tr><td>col-{n}-md</td><td>between 1200px and 992px</td><td>Size specifc for medium devices</td></tr>
+                    <tr><td>col-{n}-sm</td><td>between 992px and 768px</td><td>Size specifc for small devices</td></tr>
+                    <tr><td>col-{n}-ex</td><td>between 768px and 480px</td><td>Size specifc for extra small devices</td></tr>
+                    <tr><td>col-{n}-mn</td><td>less than 480px</td><td>Size specifc for minimum sizes devices</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <p class="section-description">Grid example with support for wide devices (larger than 1200px), medium (between 1200px and 992px), small (between 992px and 768px), extra small (between 768px and 480px) and a minimum size (less than 480px)</p>
+        </div>
+        <div class="row">
+            <div class="col col-2-lg col-2-md col-1-sm col-1-ex col-1-mn">
+                <pre><code class="html">
+        &#x3C;div class=&#x22;container&#x22;&#x3E;
+            &#x3C;div class=&#x22;row&#x22;&#x3E;
+                &#x3C;div class=&#x22;col col-1-lg col-1-md col-1-sm col-1-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-2-lg col-2-md col-2-sm col-2-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-2-lg col-2-md col-2-sm col-2-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-3-lg col-3-md col-3-sm col-3-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-3-lg col-3-md col-3-sm col-3-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-3-lg col-3-md col-3-sm col-3-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-4-lg col-4-md col-4-sm col-4-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-4-lg col-4-md col-4-sm col-4-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-4-lg col-4-md col-4-sm col-4-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-4-lg col-4-md col-4-sm col-4-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-5-lg col-5-md col-5-sm col-5-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-5-lg col-5-md col-5-sm col-5-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-5-lg col-5-md col-5-sm col-5-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-5-lg col-5-md col-5-sm col-5-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-5-lg col-5-md col-5-sm col-5-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-6-lg col-6-md col-6-sm col-6-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-6-lg col-6-md col-6-sm col-6-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-6-lg col-6-md col-6-sm col-6-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-6-lg col-6-md col-6-sm col-6-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-6-lg col-6-md col-6-sm col-6-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-6-lg col-6-md col-6-sm col-6-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-7-lg col-7-md col-7-sm col-7-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+                &#x3C;div class=&#x22;col col-8-lg col-8-md col-8-sm col-8-ex&#x22;&#x3E; ... &#x3C;/div&#x3E;
+            &#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+        </code></pre>
+            </div>
+            <div class="col col-2-lg col-2-md col-1-sm col-1-ex col-1-mn">
+            <div class="col col-1-lg col-1-md col-1-sm col-1-ex col-1-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-1-lg</span>
+                    <span class='show-on-md'>.col-1-md</span>
+                    <span class='show-on-sm'>.col-1-sm</span>
+                    <span class='show-on-ex'>.col-1-ex</span>
+                    <span class='show-on-mn'>.col-1-mn</span>
+                </div>
+            </div>
+            <div class="col col-2-lg col-2-md col-2-sm col-2-ex col-2-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-2-lg</span>
+                    <span class='show-on-md'>.col-2-md</span>
+                    <span class='show-on-sm'>.col-2-sm</span>
+                    <span class='show-on-ex'>.col-2-ex</span>
+                    <span class='show-on-mn'>.col-2-mn</span>
+                </div>
+            </div>
+            <div class="col col-2-lg col-2-md col-2-sm col-2-ex col-2-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-2-lg</span>
+                    <span class='show-on-md'>.col-2-md</span>
+                    <span class='show-on-sm'>.col-2-sm</span>
+                    <span class='show-on-ex'>.col-2-ex</span>
+                    <span class='show-on-mn'>.col-2-mn</span>
+                </div>
+            </div>
+            <div class="col col-3-lg col-3-md col-3-sm col-3-ex col-3-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-3-lg</span>
+                    <span class='show-on-md'>.col-3-md</span>
+                    <span class='show-on-sm'>.col-3-sm</span>
+                    <span class='show-on-ex'>.col-3-ex</span>
+                    <span class='show-on-mn'>.col-3-mn</span>
+                </div>
+            </div>
+            <div class="col col-3-lg col-3-md col-3-sm col-3-ex col-3-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-3-lg</span>
+                    <span class='show-on-md'>.col-3-md</span>
+                    <span class='show-on-sm'>.col-3-sm</span>
+                    <span class='show-on-ex'>.col-3-ex</span>
+                    <span class='show-on-mn'>.col-3-mn</span>
+                </div>
+            </div>
+            <div class="col col-3-lg col-3-md col-3-sm col-3-ex col-3-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-3-lg</span>
+                    <span class='show-on-md'>.col-3-md</span>
+                    <span class='show-on-sm'>.col-3-sm</span>
+                    <span class='show-on-ex'>.col-3-ex</span>
+                    <span class='show-on-mn'>.col-3-mn</span>
+                </div>
+            </div>
+            <div class="col col-4-lg col-4-md col-4-sm col-4-ex col-4-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-4-lg</span>
+                    <span class='show-on-md'>.col-4-md</span>
+                    <span class='show-on-sm'>.col-4-sm</span>
+                    <span class='show-on-ex'>.col-4-ex</span>
+                    <span class='show-on-mn'>.col-4-mn</span>
+                </div>
+            </div>
+            <div class="col col-4-lg col-4-md col-4-sm col-4-ex col-4-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-4-lg</span>
+                    <span class='show-on-md'>.col-4-md</span>
+                    <span class='show-on-sm'>.col-4-sm</span>
+                    <span class='show-on-ex'>.col-4-ex</span>
+                    <span class='show-on-mn'>.col-4-mn</span>
+                </div>
+            </div>
+            <div class="col col-4-lg col-4-md col-4-sm col-4-ex col-4-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-4-lg</span>
+                    <span class='show-on-md'>.col-4-md</span>
+                    <span class='show-on-sm'>.col-4-sm</span>
+                    <span class='show-on-ex'>.col-4-ex</span>
+                    <span class='show-on-mn'>.col-4-mn</span>
+                </div>
+            </div>
+            <div class="col col-4-lg col-4-md col-4-sm col-4-ex col-4-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-4-lg</span>
+                    <span class='show-on-md'>.col-4-md</span>
+                    <span class='show-on-sm'>.col-4-sm</span>
+                    <span class='show-on-ex'>.col-4-ex</span>
+                    <span class='show-on-mn'>.col-4-mn</span>
+                </div>
+            </div>
+            <div class="col col-5-lg col-5-md col-5-sm col-5-ex col-5-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-5-lg</span>
+                    <span class='show-on-md'>.col-5-md</span>
+                    <span class='show-on-sm'>.col-5-sm</span>
+                    <span class='show-on-ex'>.col-5-ex</span>
+                    <span class='show-on-mn'>.col-5-mn</span>
+                </div>
+            </div>
+            <div class="col col-5-lg col-5-md col-5-sm col-5-ex col-5-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-5-lg</span>
+                    <span class='show-on-md'>.col-5-md</span>
+                    <span class='show-on-sm'>.col-5-sm</span>
+                    <span class='show-on-ex'>.col-5-ex</span>
+                    <span class='show-on-mn'>.col-5-mn</span>
+                </div>
+            </div>
+            <div class="col col-5-lg col-5-md col-5-sm col-5-ex col-5-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-5-lg</span>
+                    <span class='show-on-md'>.col-5-md</span>
+                    <span class='show-on-sm'>.col-5-sm</span>
+                    <span class='show-on-ex'>.col-5-ex</span>
+                    <span class='show-on-mn'>.col-5-mn</span>
+                </div>
+            </div>
+            <div class="col col-5-lg col-5-md col-5-sm col-5-ex col-5-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-5-lg</span>
+                    <span class='show-on-md'>.col-5-md</span>
+                    <span class='show-on-sm'>.col-5-sm</span>
+                    <span class='show-on-ex'>.col-5-ex</span>
+                    <span class='show-on-mn'>.col-5-mn</span>
+                </div>
+            </div>
+            <div class="col col-5-lg col-5-md col-5-sm col-5-ex col-5-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-5-lg</span>
+                    <span class='show-on-md'>.col-5-md</span>
+                    <span class='show-on-sm'>.col-5-sm</span>
+                    <span class='show-on-ex'>.col-5-ex</span>
+                    <span class='show-on-mn'>.col-5-mn</span>
+                </div>
+            </div>
+            <div class="col col-6-lg col-6-md col-6-sm col-6-ex col-6-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-6-lg</span>
+                    <span class='show-on-md'>.col-6-md</span>
+                    <span class='show-on-sm'>.col-6-sm</span>
+                    <span class='show-on-ex'>.col-6-ex</span>
+                    <span class='show-on-mn'>.col-6-mn</span>
+                </div>
+            </div>
+            <div class="col col-6-lg col-6-md col-6-sm col-6-ex col-6-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-6-lg</span>
+                    <span class='show-on-md'>.col-6-md</span>
+                    <span class='show-on-sm'>.col-6-sm</span>
+                    <span class='show-on-ex'>.col-6-ex</span>
+                    <span class='show-on-mn'>.col-6-mn</span>
+                </div>
+            </div>
+            <div class="col col-6-lg col-6-md col-6-sm col-6-ex col-6-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-6-lg</span>
+                    <span class='show-on-md'>.col-6-md</span>
+                    <span class='show-on-sm'>.col-6-sm</span>
+                    <span class='show-on-ex'>.col-6-ex</span>
+                    <span class='show-on-mn'>.col-6-mn</span>
+                </div>
+            </div>
+            <div class="col col-6-lg col-6-md col-6-sm col-6-ex col-6-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-6-lg</span>
+                    <span class='show-on-md'>.col-6-md</span>
+                    <span class='show-on-sm'>.col-6-sm</span>
+                    <span class='show-on-ex'>.col-6-ex</span>
+                    <span class='show-on-mn'>.col-6-mn</span>
+                </div>
+            </div>
+            <div class="col col-6-lg col-6-md col-6-sm col-6-ex col-6-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-6-lg</span>
+                    <span class='show-on-md'>.col-6-md</span>
+                    <span class='show-on-sm'>.col-6-sm</span>
+                    <span class='show-on-ex'>.col-6-ex</span>
+                    <span class='show-on-mn'>.col-6-mn</span>
+                </div>
+            </div>
+            <div class="col col-6-lg col-6-md col-6-sm col-6-ex col-6-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-6-lg</span>
+                    <span class='show-on-md'>.col-6-md</span>
+                    <span class='show-on-sm'>.col-6-sm</span>
+                    <span class='show-on-ex'>.col-6-ex</span>
+                    <span class='show-on-mn'>.col-6-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-7-lg col-7-md col-7-sm col-7-ex col-7-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-7-lg</span>
+                    <span class='show-on-md'>.col-7-md</span>
+                    <span class='show-on-sm'>.col-7-sm</span>
+                    <span class='show-on-ex'>.col-7-ex</span>
+                    <span class='show-on-mn'>.col-7-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            <div class="col col-8-lg col-8-md col-8-sm col-8-ex col-8-mn">
+                <div class="preview">
+                    <span class='show-on-lg'>.col-8-lg</span>
+                    <span class='show-on-md'>.col-8-md</span>
+                    <span class='show-on-sm'>.col-8-sm</span>
+                    <span class='show-on-ex'>.col-8-ex</span>
+                    <span class='show-on-mn'>.col-8-mn</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <h2 class="section-title">Display Classes</h2>
+            <p class="section-description">Display classes let you control the display of columns on certain screen sizes</p></div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col">
+                <table>
+                    <tr><th>Class</th><th>Description</th></tr>
+                    <tr><td>hide-on-lg</td><td>Hide the collumn in large sizes</td></tr>
+                    <tr><td>hide-on-md</td><td>Hide the collumn in medium sizes</td></tr>
+                    <tr><td>hide-on-sm</td><td>Hide the collumn in small sizes</td></tr>
+                    <tr><td>hide-on-ex</td><td>Hide the collumn in extra small sizes</td></tr>
+                    <tr><td>hide-on-mn</td><td>Hide the collumn in minimun sizes</td></tr>
+                    <tr><td>show-on-lg</td><td>Show the collumn only in large sizes</td></tr>
+                    <tr><td>show-on-md</td><td>Show the collumn only in medium sizes</td></tr>
+                    <tr><td>show-on-sm</td><td>Show the collumn only in small sizes</td></tr>
+                    <tr><td>show-on-ex</td><td>Show the collumn only in extra small sizes</td></tr>
+                    <tr><td>show-on-mn</td><td>Show the collumn only in minimun sizes</td></tr>
+                </table>
+            </div>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+
+</html>
